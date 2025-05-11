@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoCoin - Modern Cryptocurrency Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+    <nav class="border-b border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <span class="text-2xl font-bold text-white">CryptoCoin</span>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="#" class="border-transparent text-gray-300 hover:border-white hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Dashboard</a>
+                        <a href="#" class="border-transparent text-gray-300 hover:border-white hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Wallet</a>
+                        <a href="#" class="border-transparent text-gray-300 hover:border-white hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Explorer</a>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium">Connect Wallet</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl font-extrabold sm:text-5xl md:text-6xl mb-4">Welcome to <span class="text-indigo-500">CryptoCoin</span></h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">A secure and modern cryptocurrency platform for the future of digital transactions.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                <div class="text-indigo-500 mb-4"><i class="fas fa-wallet text-3xl"></i></div>
+                <h3 class="text-xl font-semibold mb-2">Secure Wallet</h3>
+                <p class="text-gray-400">Create and manage your cryptocurrency wallet with advanced security features.</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                <div class="text-indigo-500 mb-4"><i class="fas fa-exchange-alt text-3xl"></i></div>
+                <h3 class="text-xl font-semibold mb-2">Fast Transactions</h3>
+                <p class="text-gray-400">Send and receive cryptocurrency instantly with minimal transaction fees.</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                <div class="text-indigo-500 mb-4"><i class="fas fa-search text-3xl"></i></div>
+                <h3 class="text-xl font-semibold mb-2">Blockchain Explorer</h3>
+                <p class="text-gray-400">Explore transactions, blocks, and addresses in real-time.</p>
+            </div>
+        </div>
+        <!-- Wallet Section -->
+        <div id="walletSection" class="bg-gray-800 rounded-lg shadow-lg p-8 mb-16 hidden">
+            <h2 class="text-2xl font-bold mb-6">Your Wallet</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Balance Card -->
+                <div class="bg-gray-700 rounded-lg p-6">
+                    <h3 class="text-lg font-medium text-gray-300 mb-2">Wallet Address</h3>
+                    <p id="walletAddress" class="text-sm font-mono bg-gray-800 p-2 rounded mb-4">Not Connected</p>
+                    <h3 class="text-lg font-medium text-gray-300 mb-2">Total Balance</h3>
+                    <p id="walletBalance" class="text-3xl font-bold">0.00 CC</p>
+                </div>
+
+                <!-- Send Transaction Form -->
+                <div class="bg-gray-700 rounded-lg p-6">
+                    <h3 class="text-lg font-medium text-gray-300 mb-4">Send Coins</h3>
+                    <form id="sendForm" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Recipient Address</label>
+                            <input type="text" id="toAddress" class="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white" placeholder="Enter recipient address">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Amount</label>
+                            <input type="number" id="amount" class="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white" placeholder="Enter amount" step="0.000001">
+                        </div>
+                        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blockchain Stats -->
+        <div class="bg-gray-800 rounded-lg shadow-lg p-8">
+            <h2 class="text-2xl font-bold mb-6">Blockchain Statistics</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="bg-gray-700 rounded-lg p-4">
+                    <h3 class="text-sm font-medium text-gray-300">Chain Length</h3>
+                    <p id="chainLength" class="text-xl font-semibold">0</p>
+                </div>
+                <div class="bg-gray-700 rounded-lg p-4">
+                    <h3 class="text-sm font-medium text-gray-300">Mining Difficulty</h3>
+                    <p id="difficulty" class="text-xl font-semibold">4</p>
+                </div>
+                <div class="bg-gray-700 rounded-lg p-4">
+                    <h3 class="text-sm font-medium text-gray-300">Mining Reward</h3>
+                    <p id="miningReward" class="text-xl font-semibold">100 CC</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
